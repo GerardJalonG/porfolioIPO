@@ -818,6 +818,12 @@ button:hover {
 .light-theme .devicon_item { background: var(--devicon-bg); color: inherit; }
 .light-theme .devicon_label { color: #5b6b7a; }
 
+.light-theme .devicon_item:hover .devicon_label,
+.light-theme .devicon_item:focus-within .devicon_label,
+.light-theme .devicon_item:focus .devicon_label {
+    color: var(--text-strong);
+}
+
 body, .navbar, .experiencia_container, .proyecto_video, .devicon_item {
     transition: background-color 260ms ease, color 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
 }
