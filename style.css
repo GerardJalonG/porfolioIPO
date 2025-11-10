@@ -435,9 +435,54 @@ ol, ul {
   .tech_item .icono { width: 72px; height: 72px; }
 }
 
-/* feedback opcional al pasar el ratón */
-.tech_scroller { cursor: default; }
-.tech_scroller.is-hover { outline: 1px dashed rgba(255,255,255,0.2); }
+.devicons_section { padding: 1rem 0; }
+.devicons_grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+.devicon_item {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    color: #ffffff;
+    text-align: center;
+}
+.devicon_item i { font-size: 36px; line-height: 1; }
+.devicon_label { margin-top: 8px; font-size: 0.85rem; color: #c3c3c3; }
+
+@media (max-width: 600px) {
+    .devicon_item { width: 90px; height: 90px; }
+    .devicon_item i { font-size: 28px; }
+}
+
+.devicon_item i {
+    transition: filter 220ms ease, transform 180ms ease;
+    filter: grayscale(100%) brightness(0.95) saturate(0%);
+}
+.devicon_item:hover i,
+.devicon_item:focus-within i,
+.devicon_item:focus i {
+    filter: none;
+    transform: scale(1.06);
+}
+.devicon_item .devicon_label {
+    transition: color 180ms ease;
+    color: #9aa4b2;
+}
+.devicon_item:hover .devicon_label,
+.devicon_item:focus-within .devicon_label,
+.devicon_item:focus .devicon_label {
+    color: #ffffff;
+}
 
 
 form {
