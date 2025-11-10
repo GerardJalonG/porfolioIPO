@@ -16,8 +16,7 @@
   }
 
   const stored = localStorage.getItem(storageKey);
-  const prefersDark = mq ? mq.matches : true;
-  const initial = stored || (prefersDark ? 'dark' : 'light');
+  const initial = stored || 'dark';
   setTheme(initial);
 
   if (btn) {
@@ -29,13 +28,8 @@
     });
   }
 
-  if (mq) {
-    const listener = (e) => {
-      if (!localStorage.getItem(storageKey)) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
-    if (mq.addEventListener) mq.addEventListener('change', listener);
-    else if (mq.addListener) mq.addListener(listener);
-  }
+  // Do not follow system changes if user hasn't set a preference;
+  // we intentionally default to dark. Keep listener only to update
+  // if the user explicitly clears preference and you want system sync
+  // (currently we skip automatic system sync to keep default dark behaviour).
 })();
